@@ -4,6 +4,7 @@ const app = express();
 const path = require('path')
 
 app.use(express.urlencoded({extended:true}) )  // exibir os dados das requisições POST
+app.use(express.static('./public'))  // exibir os conteudos estáticos
 
 app.use(routes);
 app.set('views', path.resolve(__dirname,'src','views'))

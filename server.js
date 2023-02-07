@@ -8,11 +8,12 @@ const mongoose = require('mongoose')
 
 mongoose.set("strictQuery", true);
 
-mongoose.connect(process.env.CONEXIONSTRING,{useNewUrlParser:true,useUnifiedTopology:true})
+mongoose.connect(process.env.CONEXIONSTRING,{useNewUrlParser:true, useUnifiedTopology:true})
 .then(()=> {
     app.emit('pronto')
+    console.log('conectei')
 })
-.catch(e => console.log(e))
+.catch((e) => console.log(e))
 
 
 const routes = require('./routes')
@@ -28,5 +29,6 @@ app.set('views', path.resolve(__dirname,'src','views'))
 app.set('view engine', 'ejs')
 
 
-
+app.on('poronto',() => {
+})
 app.listen(3000, () => console.log ('🔥 server up! on port 3000'))
